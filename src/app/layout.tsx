@@ -1,9 +1,22 @@
 import type { Metadata } from 'next';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
+import AppProvider from '@/contexts/AppProvider';
+import { Toaster } from "@/components/ui/toaster";
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+});
 
 export const metadata: Metadata = {
-  title: 'FamilyCourse - Диагностика 404',
-  description: 'Поиск причины ошибки 404 на главной странице FamilyCourse.',
+  title: 'FamilyCourse',
+  description: 'LinguaLearn - Learn Languages with FamilyCourse',
 };
 
 export default function RootLayout({
@@ -12,10 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head />
       <body>
-        {children}
+        <AppProvider>
+          {children}
+          <Toaster />
+        </AppProvider>
       </body>
     </html>
   );
