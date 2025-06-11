@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import './globals.css'; // Keep globals.css for basic styling
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'FamilyCourse Diagnostics',
-  description: 'Troubleshooting FamilyCourse 404',
+  title: 'FamilyCourse - Диагностика 404',
+  description: 'Поиск причины ошибки 404 на главной странице FamilyCourse.',
 };
 
 export default function RootLayout({
@@ -12,11 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        {/* Font links temporarily removed for diagnostics */}
-      </head>
-      <body> {/* Removed custom font classes, AppProvider, and Toaster for diagnostics */}
+    <html lang="ru">
+      <head />
+      <body>
         {children}
       </body>
     </html>
