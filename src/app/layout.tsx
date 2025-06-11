@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
-import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
-import AppProvider from '@/contexts/AppProvider'; // Restored
+import './globals.css'; // Keep globals.css for basic styling
 
 export const metadata: Metadata = {
-  title: 'FamilyCourse',
-  description: 'Learn effectively with FamilyCourse',
+  title: 'FamilyCourse Diagnostics',
+  description: 'Troubleshooting FamilyCourse 404',
 };
 
 export default function RootLayout({
@@ -16,19 +14,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+        {/* Font links temporarily removed for diagnostics */}
       </head>
-      <body className="font-body antialiased">
-        <AppProvider> {/* Restored */}
-          {children}
-          <Toaster />
-        </AppProvider> {/* Restored */}
+      <body> {/* Removed custom font classes, AppProvider, and Toaster for diagnostics */}
+        {children}
       </body>
     </html>
   );
 }
-
-
