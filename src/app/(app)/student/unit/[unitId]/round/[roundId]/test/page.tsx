@@ -65,6 +65,17 @@ export default function TestRoundPage() {
 
   const generateQuestions = useCallback(() => {
     setLoading(true);
+
+    // FIX: Ensure unitId and roundId are defined before using them
+    if (!unitId || !roundId) {
+      setLoading(false);
+      setQuestions([]);
+      setUnitName('');
+      setRoundName('');
+      // console.warn("unitId or roundId is undefined in generateQuestions");
+      return;
+    }
+    
     const roundWords = getRoundWords(unitId, roundId);
     const unit = getUnitById(unitId);
     setUnitName(unit?.name || '');
@@ -130,7 +141,7 @@ export default function TestRoundPage() {
     setScore(calculatedScore);
     setIncorrectlyAnsweredWordsData(incorrectWordsForDisplay);
 
-    if (currentUser) {
+    if (currentUser && unitId && roundId) { // Ensure unitId and roundId are defined
       addStudentProgress({
         studentId: currentUser.id,
         unitId,
@@ -308,3 +319,5 @@ export default function TestRoundPage() {
     </div>
   );
 }
+
+    
