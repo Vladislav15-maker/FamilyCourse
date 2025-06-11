@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-// import AppProvider from '@/contexts/AppProvider'; // Temporarily commented out
+import AppProvider from '@/contexts/AppProvider'; // Restored
 
 export const metadata: Metadata = {
   title: 'FamilyCourse',
@@ -22,11 +22,12 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        {/* <AppProvider> */}
+        <AppProvider> {/* Restored */}
           {children}
           <Toaster />
-        {/* </AppProvider> */}
+        </AppProvider> {/* Restored */}
       </body>
     </html>
   );
 }
+
